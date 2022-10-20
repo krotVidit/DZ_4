@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+public class Exercise3 {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Напишите цифру размером не более 3 чисел ");
+        int num = scan.nextInt();
+
+        if(num<=999) {
+            // Цифра с одним числом
+            if (num <= 9)
+                System.out.println("Наибольшая цифра в числе " + num);
+
+            //Цифра с двумя числами
+            if (num > 9 && num <= 99) {
+                int num1 = num / 10;
+                int num2 = num % 10;
+
+                if (num1 > num2)
+                    System.out.println("Наибольшая цифра в числе " + num1);
+                else
+                    System.out.println("Наибольшая цифра в числе " + num2);
+            }
+            //Цифра с тремя числами
+            if (num > 99 && num <= 999) {
+                int num1 = num / 100;
+                int num2 = num / 10 % 10;
+                int num3 = num % 10;
+
+                if (num1 >= num2 && num1 >= num3)
+                    System.out.println("Наибольшая цифра в числе " + num1);
+
+                else if (num2 >= num1 && num2 >= num3)
+                    System.out.println("Наибольшая цифра в числе " + num2);
+
+                else
+                    System.out.println("Наибольшая цифра в числе " + num3);
+            }
+        }
+
+        else
+            System.out.println("Цифра превышает лимит ");
+
+
+    }
+}
